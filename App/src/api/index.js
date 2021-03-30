@@ -1,6 +1,11 @@
 import axios from 'axios';
+import {Platform} from 'react-native';
 
-const baseUrl = 'http://10.0.2.2:3000/api/task';
+let baseUrl = 'http://10.0.2.2:3000/api/task';
+
+if (Platform.OS === 'ios') {
+  baseUrl = 'http://localhost:3000/api/task';
+}
 
 // fetch all tasks
 export const fetchAlltask = async () => {
